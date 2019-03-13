@@ -4,7 +4,8 @@
 Projectile - Project Management Web Application that allows you to create process improvement projects and monitor their tasks.
 
 
-
+View <a href="https://trello.com/b/RMYvr9HC/wdi-project-4-projectile" >Trello Board</a>
+View <a href="https://projectilefx.herokuapp.com/" >Demo</a>
 
 
 <h2>Technologies:</h2> 
