@@ -19,6 +19,8 @@ const ProjectController = {
             .then((updatedProject) => {
                 updatedProject.save()
                 res.send(updatedProject)
+                console.log(updatedProject);
+                
             })
     },
     delete: (req, res) => {

@@ -6,8 +6,7 @@ import styled from 'styled-components'
 const LandingPageStyle = styled.div`
     text-align: center;
     padding: 250px;
-    font-size:
-`
+    `;
 
 
 class LandingPage extends Component {
@@ -20,7 +19,7 @@ class LandingPage extends Component {
                 <Link to="/projects">
                 
                     
-                <img src={"./images/logo.ico"} height={150} width={150}/>
+                <img src={"./images/logo.ico"} height={150} width={150} alt=''/>
                 <h1>Projectile </h1>
                 </Link>
                 </LandingPageStyle>

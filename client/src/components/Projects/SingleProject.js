@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
+import EditProjectForm from './EditProjectForm';
 import { 
     Card, 
     CardText, 
@@ -41,26 +42,31 @@ class SingleProject extends Component {
                         </div>
                         <button>Submit</button>
                     </form>
-                
                 }
+                
                 <br/>
+                <EditProjectForm
+                handleEditChange = { this.handleEditChange }
+                handleEditSubmit = { this.handleEditSubmit }
+                  />
                 <Col xs="9">
                 {
                     this.props.tasks &&
-                    this.props.tasks.map((task) => {
+                    this.props.tasks.map((task,i) => {
                         return (
-                            <Card>
+                            <Card key={i}>
                                 <CardBody>
                                 <CardTitle>Title: {task.title}</CardTitle>
                                 <CardText>Description: {task.description}</CardText>
                                 <Link to={`/projects/:projectId`}></Link>
-                                <Button onClick={this.props.deleteTask}><img src={'../images/deletetaskicon.png'} height='15px' weight='15px'/></Button>
+                                <Button onClick={this.props.deleteTask}><img src={'../images/deletetaskicon.png'} height='15px' weight='15px' alt=''/></Button>
                                 </CardBody>
                             </Card>
                         );
                     })
                 }
                 </Col>
+
             </React.Fragment>
         );
     }

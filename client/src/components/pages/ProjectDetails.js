@@ -21,7 +21,8 @@ class ProjectDetails extends Component {
     state = {
         project: {},
         task: {},
-        editFormVisible: false
+        editFormVisible: false,
+        addTaskVisible: false
     }
 
     componentDidMount() {
@@ -33,17 +34,22 @@ class ProjectDetails extends Component {
         axios.get(`/api/projects/${projectId}`)
             .then((res) => {
                 this.setState({ project: res.data })
-            })
+            }).catch(err => err)
     }
 
     deleteProject = () => {
         const projectId = this.props.match.params.projectId
         axios.delete(`/api/projects/${projectId}`)
             .then(() => this.props.history.goBack())
+            .catch(err => err)
     }
 
     toggleEditProjectForm = () => {
         this.setState({ editFormVisible: !this.state.editFormVisible })
+    }
+
+    toggleAddTaskForm = () => {
+        this.setState({addTaskVisible: !this.state.addTaskVisible})
     }
     handleEditChange = (event) => {
         const newState = { ...this.state.project }
@@ -58,7 +64,7 @@ class ProjectDetails extends Component {
         axios.patch(`/api/projects/${projectId}`, payload)
         .then((res) => {
             this.props.getSingleProject()
-            this.props.toggleEditProjectForm()
+            this.props.toggleAddTaskForm()
         })
     }
     createNewTask = () => {
@@ -79,9 +85,10 @@ class ProjectDetails extends Component {
 
     deleteTask = () => {
         // event.preventDefault()
+        const projectId = this.props.match.params.projectId
         const taskId = this.props.match.params.taskId
         console.log(taskId)
-        axios.delete(`/api/tasks/${taskId}`).then(() => {
+        axios.delete(`/api/projects/${projectId}/tasks/${taskId}`).then(() => {
             this.props.getSingleProject()
         })
     }
@@ -121,7 +128,7 @@ class ProjectDetails extends Component {
                     </button>
                     <button 
                         style={buttonStyle}
-                        onClick={this.toggleEditProjectForm}
+                        onClick={this.toggleAddTaskForm}
                     >
                         Edit Project
                     </button>
@@ -130,15 +137,18 @@ class ProjectDetails extends Component {
                 <Col xs="9">
                     <SingleProject 
                         createNewTask={this.createNewTask}
-                        // deleteTask={this.deleteTask}
+                        deleteTask={this.deleteTask}
                         deleteProject={this.deleteProject}
                         getSingleProject={this.getSingleProject}
                         editFormVisible={this.state.editFormVisible}
+                        addTaskVisible={this.state.addTaskVisible}
                         project={this.state.project}
                         tasks={this.state.project.tasks}
                         task={this.state.task}
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
+                        handleEditChange={this.handleEditChange}
+                        handleEditSubmit={this.handleEditSubmit}
                     />
                 </Col>
             </React.Fragment>

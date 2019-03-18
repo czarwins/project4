@@ -35,6 +35,11 @@ class ProjectMain extends Component {
         .then((res) => this.getAllProjects());
     }
 
+    // editProject = (projectId) => {
+    //     axios.patch(`/api/projects/${projectId}`)
+    //     .then((res) => this.) 
+    // }
+
     handleChange = (event) => {
         const newState = { ...this.state.project }
         newState[event.target.name] = event.target.value

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { withRouter } from 'react-router-dom';
 
 class EditProjectForm extends Component {
     state = {
@@ -23,27 +24,29 @@ class EditProjectForm extends Component {
         .then((res) => {
             this.props.getSingleProject()
             this.props.toggleEditProjectForm()
-        })
+            console.log(res.payload);
+            
+        }).catch(err => err)
     }
 
     render() {
         return (
             // null
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.handleEditSubmit}>
                     <div>
                         <input type="text"
                         placeholder="projectname"
                         name="projectname"
-                        value={this.state.project.projectname}
-                        onChange={this.handleChange}
+                        defaultValue={this.state.project.projectname || ''}
+                        onChange={this.props.handleEditChange}
                         />
                     </div>
                     <div>
                         <input type="text"
                         placeholder="description"
-                        value={this.state.project.description}
-                        onChange={this.handleChange}
+                        defaultValue={this.state.project.description || ''}
+                        onChange={this.props.handleEditChange}
                         name="description"/>
                     </div>
                     <button>Submit</button>
@@ -53,4 +56,4 @@ class EditProjectForm extends Component {
     }
 }
 
-export default EditProjectForm;
+export default withRouter(EditProjectForm);

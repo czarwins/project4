@@ -20,9 +20,9 @@ class AllProjects extends Component {
                     this.props.projects.length > 0 &&
                     <Row>
                         {
-                            this.props.projects.map((project) => {
+                            this.props.projects.map((project,i) => {
                                 return(
-                                    <Col xs="3">
+                                    <Col xs="3" key={i}>
                                         <Card style={{ marginBottom: '12px' }}>
                                             <CardBody>
                                                 <CardTitle>{project.projectname}</CardTitle>
@@ -31,7 +31,7 @@ class AllProjects extends Component {
                                                     <Button>View Project</Button>
                                                 </Link> 
                                                 <Link to={`/projects/`}>
-                                                <Button onClick={() => this.props.deleteProject(project._id)}><img src={'../images/deletetaskicon.png'} height='15px' weight='15px'/></Button>
+                                                <Button onClick={() => this.props.deleteProject(project._id)}><img src={'../images/deletetaskicon.png'} height='15px' weight='15px' alt=''/></Button>
                                                 </Link>
                                             </CardBody>
                                         </Card>
