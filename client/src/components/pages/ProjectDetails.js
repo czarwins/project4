@@ -67,6 +67,7 @@ class ProjectDetails extends Component {
     axios.patch(`/api/projects/${projectId}/`, payload).then(res => {
       this.props.getSingleProject();
       this.props.toggleEditProjectForm();
+      console.log(projectId);
     });
   };
   createNewTask = () => {

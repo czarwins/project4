@@ -16,8 +16,8 @@ class EditProjectForm extends Component {
     this.setState({ project: newState });
   };
 
-  handleEditSubmit = event => {
-    event.preventDefault();
+  handleEditSubmit = () => {
+    // this.preventDefault();
     const payload = this.state.project;
     const projectId = this.props.match.params.projectId;
     axios
@@ -26,6 +26,8 @@ class EditProjectForm extends Component {
         this.props.getSingleProject();
         this.props.toggleEditProjectForm();
         console.log(res.payload);
+        console.log(projectId);
+        
       })
       .catch(error => {
         console.log("error", error);
@@ -38,14 +40,14 @@ class EditProjectForm extends Component {
       <React.Fragment>
       
         {/* {this.props.editFormVisible && ( */}
-          <form onSubmit={this.props.handleEditSubmit}>
+          
             <div>
               <input
                 type="text"
                 placeholder="projectname"
                 name="projectname"
                 defaultValue={this.state.project.projectname || ""}
-                onChange={this.props.handleEditChange}
+                onChange={this.handleEditChange}
               />
             </div>
             <div>
@@ -53,12 +55,12 @@ class EditProjectForm extends Component {
                 type="text"
                 placeholder="description"
                 defaultValue={this.state.project.description || ""}
-                onChange={this.props.handleEditChange}
+                onChange={this.handleEditChange}
                 name="description"
               />
             </div>
-            <button>Submit</button>
-          </form>
+            <button type="submit" onClick={this.handleEditSubmit}>Submit</button>
+          
         {/* )} */}
       </React.Fragment>
     );
