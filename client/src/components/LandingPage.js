@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container } from 'reactstrap';
 import styled from 'styled-components'
 
+
 const LandingPageStyle = styled.div`
     text-align: center;
     padding: 250px;
@@ -15,6 +16,7 @@ class LandingPage extends Component {
         return (
 
      <Container>
+     
          <LandingPageStyle>
                 <Link to="/projects">
                 

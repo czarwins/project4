@@ -38,6 +38,8 @@ class SingleProject extends Component {
         <EditProjectForm
           handleEditChange={this.handleEditChange}
           handleEditSubmit={this.handleEditSubmit}
+          getSingleProject={this.props.getSingleProject}
+          editFormVisible={this.props.editFormVisible}
         />
         <Col xs="9">
           {this.props.tasks &&

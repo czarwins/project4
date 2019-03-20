@@ -4,7 +4,8 @@ class AddProjectForm extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
+            {/* <div> */}
                 <button 
                     onClick={this.props.toggleAddProjectForm}>
                     { 
@@ -15,7 +16,8 @@ class AddProjectForm extends Component {
                 </button>
                 {
                     this.props.formVisible && 
-                    <form onSubmit={this.props.handleSubmit}>
+                    
+                    <div>
                     <br/>
                         <div>
                             <input 
@@ -36,10 +38,12 @@ class AddProjectForm extends Component {
                                 name="description"
                             />
                         </div>
-                        <button>Submit</button>
-                    </form>
+                        
+                        <button onClick={this.props.handleSubmit}>Submit</button>
+                        </div>
                 }
-            </div>
+            {/* </div> */}
+            </React.Fragment>
         );
     }
 }
