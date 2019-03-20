@@ -30,6 +30,7 @@ Projectile - Project Management Web Application that allows you to create proces
 <li>Bootstrap</li>
 <li>Reactstrap</li>
 <li>React router</li>
+<li>Google Maps API</li>
 
 <h2>Features:</h2>
 <li>CRUD</li>
