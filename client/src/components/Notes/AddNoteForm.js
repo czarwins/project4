@@ -15,10 +15,12 @@ class AddNoteForm extends Component {
             name="note"
           />
         </div>
-        <button type="submit" onClick={this.props.createNewNote}>
+        {/* add onClick={this.props.createNewNote} to the add note button */}
+         <button type="submit"  > 
           + Add Note
         </button>
-        <button onClick={this.props.deleteNote}>
+        {/* add onClick={this.props.deleteNote} to the delete note button */}
+        <button >
           <img
             src={"../images/deletetaskicon.png"}
             height="15px"
