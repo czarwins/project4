@@ -7,12 +7,14 @@ Projectile - Project Management Web Application that allows you to create proces
 View <a href="https://trello.com/b/RMYvr9HC/wdi-project-4-projectile" >Trello Board</a>
 View <a href="https://projectilefx.herokuapp.com/" >Demo</a>
 
-Wireframes:
+## Wireframes:
+<br/>
 <img src='./client/public/images/projectlistwireframe.jpg' alt=""/>
 <img src='./client/public/images/projectshowpagewireframe.jpg' alt=""/>
 <img src='./client/public/images/taskshowpagewireframe.jpg' alt=""/>
 
-Entity Relationship Diagram:
+## Entity Relationship Diagram:
+<br/>
 <img src='./client/public/images/erdplus-diagram.png' alt=""/>
 
 <h2>Technologies:</h2> 
